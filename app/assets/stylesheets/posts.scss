@@ -1,0 +1,23 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ul {
+    list-style-type: none;
+    
+}
+li {
+    width: 70%;
+    height: 1.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    }
+
+.post.table {
+    position: relative;
+}
+.show {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}

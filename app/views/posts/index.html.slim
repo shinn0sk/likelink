@@ -1,0 +1,25 @@
+h1 Posts#index
+p Find me in app/views/posts/index.html.slim
+
+= link_to '新規投稿', new_post_path, class: 'btn btn-success'
+
+
+.mb-3
+tbody
+    .nav.justify-content-center
+        - @posts.each do |post|
+            .post.table
+                ul.border.bg-light.mb-1
+                    li = link_to post.name,post.name
+                    li = post.description
+                    li = post.url                   
+                    .show
+                        .nav.justify-content-end
+                            = link_to '詳細',post,class: 'btn btn-primary'
+                .nav.justify-content-end
+                    = link_to 'GOOD',post,class: 'btn btn-info mr-2'
+                    = link_to 'NO GOOD',post,class: 'btn btn-danger mr-4'
+                    = post.created_at 
+                    
+                
+                   
