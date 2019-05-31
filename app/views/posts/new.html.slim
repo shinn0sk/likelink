@@ -1,18 +1,4 @@
 h1 Posts#new
 p Find me in app/views/posts/new.html.slim
 
-.nav.justify-content-end 
-    = link_to '一覧へ', posts_path, class: 'btn btn-primary mb-3'
-
-= form_with model: @post, local: true do |f|
-    .form-group
-        = f.label :name
-        = f.text_field :name, class: 'form-control', id: 'post_name'
-    .form-group
-        = f.label :description
-        = f.text_area :description, class: 'form-control', id: 'post_description'
-    .form-group
-        = f.label :url
-        = f.text_area :url, class: 'form-control', id: 'post_url'
-
-    = f.submit nil, class: 'btn btn-success'
+= render partial: 'form', locals: { post: @post }

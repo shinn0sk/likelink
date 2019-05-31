@@ -1,22 +1,7 @@
 h1 Posts#edit
 p Find me in app/views/posts/edit.html.slim
 
+= render partial: 'form', locals: { post: @post }
+
 .nav.justify-content-end 
-    = link_to '一覧へ', posts_path, class: 'btn btn-primary mb-3'
-
-= form_with model: @post, local: true do |f|
-    .form-group
-        = f.label :name
-        = f.text_field :name, class: 'form-control', id: 'post_name'
-    .form-group
-        = f.label :description
-        = f.text_area :description, class: 'form-control', id: 'post_description'
-    .form-group
-        = f.label :url
-        = f.text_area :url, class: 'form-control', id: 'post_url'
-
-    = f.submit nil, class: 'btn btn-success'
-    
-    .destroy
-        .nav.justify-content-end 
-            = link_to '削除' ,@post, method: :delete ,class: 'btn btn-danger'
+    = link_to '削除' ,@post, method: :delete ,data: {confirm: "realy?"},class: 'btn btn-danger ml-3'
