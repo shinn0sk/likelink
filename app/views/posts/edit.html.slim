@@ -1,5 +1,5 @@
-h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+h1 Posts#edit
+p Find me in app/views/posts/edit.html.slim
 
 .nav.justify-content-end 
     = link_to '一覧へ', posts_path, class: 'btn btn-primary mb-3'
@@ -16,3 +16,7 @@ p Find me in app/views/posts/new.html.slim
         = f.text_area :url, class: 'form-control', id: 'post_url'
 
     = f.submit nil, class: 'btn btn-success'
+    
+    .destroy
+        .nav.justify-content-end 
+            = link_to '削除' ,@post, method: :delete ,class: 'btn btn-danger'
