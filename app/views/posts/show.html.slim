@@ -18,6 +18,9 @@ table.table.table-hover.border
         tr
             th= Post.human_attribute_name(:created_at)
             td= @post.created_at
+        tr
+            th= Post.human_attribute_name(:updated_at)
+            td= @post.updated_at
 
 .nav.justify-content-end 
     = link_to '編集' ,edit_post_path,class: 'btn btn-warning mr-3'
