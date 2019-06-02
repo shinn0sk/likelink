@@ -1,0 +1,15 @@
+h1 ログイン
+p Find me in app/views/session/new.html.slim
+
+
+
+= form_with scope: :session, local: true do |f|
+    .form-group
+        = f.label :email
+        = f.text_field :email, class: 'form-control'
+    .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+    
+    = f.submit nil,class: 'btn btn-primary'
+

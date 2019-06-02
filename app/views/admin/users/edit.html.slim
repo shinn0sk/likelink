@@ -7,8 +7,7 @@ p Find me in app/views/admin/users/edit.html.slim
             li = message
 
 .nav.justify-content-end
-    = link_to '記事一覧へ',posts_path, class: 'btn btn-primary mr-3'
-    = link_to 'ユーザー一覧へ',admin_users_path, class: 'btn btn-primary mr-3'
+    = link_to '戻る',admin_users_path, class: 'btn btn-primary mr-3'
 
 = form_with model: [ :admin,@user ], local: true do |f|
     .form-group
@@ -19,10 +18,10 @@ p Find me in app/views/admin/users/edit.html.slim
         = f.text_field :email, class: 'form-control'
     .form-group
         = f.label :password
-        = f.text_field :password, class: 'form-control'
+        = f.password_field :password, class: 'form-control'
     .form-group
         = f.label :password_confirmation
-        = f.text_field :password_confirmaition, class: 'form-control'
+        = f.password_field :password_confirmation, class: 'form-control'
 
     = f.submit nil, data: {confirm: "入力内容に間違いはないですか？"}, class: 'btn btn-success'    
     
