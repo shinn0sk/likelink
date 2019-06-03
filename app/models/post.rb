@@ -4,5 +4,7 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { maximum: 240}
     validates :url, length: { minimum: 10}
 
+    belongs_to :user
+
 
 end
