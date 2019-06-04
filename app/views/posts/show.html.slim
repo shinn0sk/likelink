@@ -14,7 +14,7 @@ table.table.table-hover.border
             td= simple_format(h(@post.description),{},sanitize: false,wrappar_tag: "div")
         tr
             th= Post.human_attribute_name(:url)
-            td= @post.url
+            td== Rinku.auto_link(@post.url, :all, 'target="_blank"')
         tr
             th= Post.human_attribute_name(:created_at)
             td= @post.created_at
@@ -23,4 +23,6 @@ table.table.table-hover.border
             td= @post.updated_at
 
 .nav.justify-content-end 
-    = link_to '編集' ,edit_post_path,class: 'btn btn-warning mr-3'
+    - if current_user.admin? || @post.user == current_user
+        = link_to '編集' ,edit_post_path,class: 'btn btn-warning mr-3'
+    

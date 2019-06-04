@@ -9,15 +9,16 @@ table.table.table-hover.border
         tr
             th= User.human_attribute_name(:name)
             td= @user.name
-        tr
-            th= User.human_attribute_name(:email)
-            td= @user.email
-        tr
-            th= User.human_attribute_name(:password)
-            td= @user.password
+        - if current_user.admin? || @user == current_user
+            tr
+                th= User.human_attribute_name(:email)
+                td= @user.email
+    
         tr
             th= User.human_attribute_name(:created_at)
             td= @user.created_at
 
-.nav.justify-content-end 
-    = link_to '編集' ,edit_admin_user_path,class: 'btn btn-warning mr-3'
+- if current_user.admin? || @user == current_user
+    .nav.justify-content-end 
+        = link_to '編集' ,edit_admin_user_path,class: 'btn btn-warning mr-3'
+

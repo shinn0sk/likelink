@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  
+  before_action :user_setup, only: [:edit,:update,:destroy]
   def index
     @users = User.all
   end
@@ -24,11 +24,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
+
   def update
-    @user = User.find(params[:id])
     
     if @user.update(user_params)
       redirect_to admin_users_path
@@ -39,7 +38,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    
     @user.destroy
     redirect_to admin_users_path
   end
@@ -52,5 +51,15 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def user_setup
+    @user = User.find(params[:id])
+
+    unless current_user.admin? || @user == current_user
+      redirect_to admin_users_path
+    end
+  end
+
+    
 
 end

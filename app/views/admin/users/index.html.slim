@@ -5,7 +5,8 @@ table.table.table-hover.boder
     thead
         tr
             th = User.human_attribute_name(:name)
-            th = User.human_attribute_name(:email)
+            - if current_user.admin?
+                th = User.human_attribute_name(:email)
             th = User.human_attribute_name(:admin)
             th
 
@@ -13,12 +14,15 @@ table.table.table-hover.boder
         - @users.each do |user|
             tr
                 td = link_to user.name,[:admin,user]
-                td = user.email
+                - if current_user.admin?
+                    td = user.email
                 td = user.admin?? 'あり' : 'なし'
                 td
 
                     = link_to '詳細',admin_user_path(user), class: 'btn btn-primary mr-3'
-                    = link_to '編集',edit_admin_user_path(user), class: 'btn btn-warning mr-3'
+                    
+                    - if current_user.admin?
+                        = link_to '編集',edit_admin_user_path(user), class: 'btn btn-warning mr-3'
 
 = link_to 'タスク一覧へ',posts_path, class: 'btn btn-primary mr-3'
 

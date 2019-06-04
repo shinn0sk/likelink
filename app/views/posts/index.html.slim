@@ -8,18 +8,20 @@ p Find me in app/views/posts/index.html.slim
 tbody
     .nav.justify-content-center
         - @posts.each do |post|
-            .post.table
-                ul.border.bg-light.mb-1
-                    li = link_to post.name,post.name
-                    li = post.description
-                    li = post.url                   
-                    .show
-                        .nav.justify-content-end
-                            = link_to '詳細',post,class: 'btn btn-primary'
-                .nav.justify-content-end
-                    = link_to 'GOOD',post,class: 'btn btn-info mr-2'
-                    = link_to 'NO GOOD',post,class: 'btn btn-danger mr-4'
-                    = post.created_at 
+                .post.table
+                    ul.border.bg-light.mb-1
+                        
+                        li = post.name
+                        li = post.description
+                        li == Rinku.auto_link(post.url, :all, 'target="_blank"')
                     
+                        .show
+                            .nav.justify-content-end
+                                = link_to '詳細',post,class: 'btn btn-primary'
+                    .nav.justify-content-end
+                        = link_to 'GOOD',post,class: 'btn btn-info mr-2'
+                        = link_to 'NO GOOD',post,class: 'btn btn-danger mr-4'
+                        = post.created_at 
+                        
                 
                    
