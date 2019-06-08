@@ -21,7 +21,8 @@ table.table.table-hover.border
         tr
             th= Post.human_attribute_name(:updated_at)
             td= @post.updated_at
-
+            
+= render partial: 'goods/good',locals: { post: @post , good: @good}
 .nav.justify-content-end 
     - if current_user.admin? || @post.user == current_user
         = link_to '編集' ,edit_post_path,class: 'btn btn-warning mr-3'

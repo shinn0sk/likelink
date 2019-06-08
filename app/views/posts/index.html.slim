@@ -14,13 +14,15 @@ tbody
                         li = post.name
                         li = post.description
                         li == Rinku.auto_link(post.url, :all, 'target="_blank"')
-                    
+                        
                         .show
                             .nav.justify-content-end
                                 = link_to '詳細',post,class: 'btn btn-primary'
                     .nav.justify-content-end
-                        = link_to 'GOOD',post,class: 'btn btn-info mr-2'
-                        = link_to 'NO GOOD',post,class: 'btn btn-danger mr-4'
+                        
+                        
+                        / = link_to 'GOOD',post,class: 'btn btn-info mr-2'
+                        / = link_to 'NO GOOD',post,class: 'btn btn-danger mr-4'
                         = post.created_at 
                         
                 

@@ -5,6 +5,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :description
       t.text :url, null: false
 
+      
+
       t.timestamps
     end
   end

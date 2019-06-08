@@ -1,0 +1,20 @@
+
+
+- if post.good_user(current_user.id)
+    = button_to good_path(post,good),method: :delete, id: 'good_buttons', remote: true do
+        = image_tag("no_good.png")
+        .nav.justify-content-center
+            ur
+                li = 'good'
+                li = post.goods_count
+    
+ 
+
+- else
+    = button_to post_goods_path(post),method: :create,id: 'good_buttons', remote: true do
+        = image_tag("good.jpg")
+        .nav.justify-content-center
+            ur
+                li = 'good'
+                li = post.goods_count
+    

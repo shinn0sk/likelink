@@ -7,5 +7,11 @@ Rails.application.routes.draw do
     resources :users
   end
   root to: 'posts#index'
-  resources :posts
+
+  delete '/posts/:post_id/goods', to: 'goods#destroy', as: 'good'
+    resources :posts, expect: [:create] do
+      resources :goods, only:[:create]
+    end
+
+  
 end

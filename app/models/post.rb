@@ -5,6 +5,12 @@ class Post < ApplicationRecord
     validates :url, length: { minimum: 10}
 
     belongs_to :user
+    
+    
+    has_many :goods, dependent: :destroy
+    def good_user(user_id)
+        goods.find_by(user_id: user_id)
+    end
 
 
 end

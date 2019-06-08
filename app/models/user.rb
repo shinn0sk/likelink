@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :password, length: { minimum: 7}
 
-    has_many :posts
+    has_many :posts,dependent: :destroy
+
    
 end
