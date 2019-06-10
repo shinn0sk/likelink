@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   root to: 'posts#index'
 
-  delete '/posts/:post_id/goods', to: 'goods#destroy', as: 'good'
+  delete '/posts/:post_id/goods', to: 'goods#destroy', as: :good
+  
     resources :posts, expect: [:create] do
       resources :goods, only:[:create]
     end

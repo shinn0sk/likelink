@@ -21,6 +21,7 @@ html
           li.nav-item = link_to 'マイページ', admin_user_path(current_user), class: 'nav-link'
         - else
           li.nav-item  style="width: 100px;" = link_to 'ログイン', login_path, class: 'nav-link'
+          li.nav-item  style="width: 100px;" = link_to '新規登録',new_admin_user_path,class:'btn btn-success'
         
     .container
       - if flash.notice.present?
